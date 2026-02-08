@@ -69,6 +69,7 @@ h2 {
 } */
 p {
     font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
     margin: 0;
     font-size: 23px
 }
@@ -525,6 +526,8 @@ p {
 }
 
 .radio-container {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
     display: block;
     position: relative;
     padding-left: 35px;
@@ -562,6 +565,7 @@ p {
     width: 100%;
     padding: 18px;
     font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
     background-color: var(--deep-forest);
     color: var(--white);
     border: none;
