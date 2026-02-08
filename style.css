@@ -128,6 +128,15 @@ h1, h2 {
         font-size: clamp(2.5rem, 5vw, 4rem); /* На ПК 5vw достатньо, щоб текст був великим, але не надмірним */
         margin-top: 20px;
     }
+    .date-badge {
+        font-size: clamp(2rem, 4vw, 6rem); 
+    }
+}
+@media (max-width: 992px) {
+
+    .date-badge {
+       font-size: clamp(3rem, 8vw, 6rem); 
+    }
 }
 
 .date-badge {
@@ -143,7 +152,7 @@ h1, h2 {
     color: var(--deep-forest);
     
     /* Налаштовуємо розмір: рукописні шрифти мають бути великими */
-    font-size: clamp(2rem,4vw, 6rem); 
+    /* font-size: clamp(3rem, 8vw, 6rem);  */
     
     /* Вимикаємо капслок, якщо він десь успадкувався */
     text-transform: none;
