@@ -499,7 +499,8 @@ p {
     border-bottom: 1px solid #ccc;
     background: transparent;
     outline: none;
-    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    /* font-family: 'Lato', sans-serif; */
 }
 
 .input-group label {
@@ -1205,4 +1206,8 @@ footer p {
     .rings {
         width: 100px;
     }
+}
+
+.placeholder-name{
+    font-style: italic !important;
 }
