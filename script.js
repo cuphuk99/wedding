@@ -47,7 +47,7 @@ const translations = {
         'submit-btn': 'Odoslať',
         'location': 'Localita',
         "dresscode-title": "Dresscode",
-        "dresscode-text": "Budeme veľmi vďační, ak podporíte farebnú paletu nášho sviatku. Pomôže to vytvoriť osobitnú atmosféru na fotografiách, ktoré nám zostanú na celý život!",
+        "dress-code-description": "Budeme veľmi vďační, ak podporíte farebnú paletu nášho sviatku. Pomôže to vytvoriť osobitnú atmosféru na fotografiách, ktoré nám zostanú na celý život!",
         "color-forest": "Tmavozelená",
         "color-olive": "Olivová",
         "color-dark-beige": "Tmavobéžová",

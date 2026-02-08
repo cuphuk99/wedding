@@ -183,7 +183,7 @@ p {
 @media (max-width: 992px) {
 
     .date-badge {
-       font-size: clamp(3rem, 8vw, 6rem); 
+       font-size: clamp(2.5rem, 6vw, 6rem); 
     }
 }
 
@@ -561,11 +561,12 @@ p {
 .submit-btn {
     width: 100%;
     padding: 18px;
+    font-family: 'Cormorant Garamond', serif;
     background-color: var(--deep-forest);
     color: var(--white);
     border: none;
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
@@ -666,7 +667,7 @@ p {
     margin: 0 auto 40px; /* Центруємо текст і даємо відступ до палітри */
     line-height: 1.6;
     color: var(--text-muted);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 /* Обгортка для центрування сітки */
@@ -881,7 +882,7 @@ p {
     color: var(--deep-forest);
     text-transform: none;
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     -webkit-text-stroke: 0;
 }
 /* Стилі для котика, якого обтікає текст */
@@ -903,7 +904,7 @@ p {
     font-size: 22px;
     line-height: 1.7;
     color: #555;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     text-align: justify; /* Щоб обтікання виглядало акуратніше */
 }
 .centered{
@@ -1185,7 +1186,7 @@ footer {
 
 footer p {
     margin: 0;             /* Прибираємо стандартні відступи, щоб не псували центрування */
-    font-size: 43px !important;       /* Розмір як у решти вашого тексту */
+    font-size: 39px !important;       /* Розмір як у решти вашого тексту */
     font-family: 'Great Vibes', cursive; /* Або ваш основний шрифт */
 }
 
@@ -1198,6 +1199,6 @@ footer p {
         font-size: 20px;
     }
     .rings {
-        width: 40px;
+        width: 100px;
     }
 }
