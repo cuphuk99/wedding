@@ -710,7 +710,7 @@ p {
 /* Адаптація для мобільних */
 @media (max-width: 650px) {
     .color-palette {
-        grid-template-columns: repeat(5, 1fr); /* 4 колонки на телефонах */
+        grid-template-columns: repeat(4, 1fr); /* 4 колонки на телефонах */
         gap: 12px;
     }
     
@@ -1162,7 +1162,7 @@ p {
 .gifts-section--reversed .gifts-text {
     color: #f2eee2 !important;
     opacity: 0.9;
-    font-size: 23px;
+    font-size: 21px;
 }
 
 footer {
