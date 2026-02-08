@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,900;1,500&family=Lato:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="leaf-container"></div>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+    <nav class="lang-switcher">
+        <button  onclick="changeLanguage('ua')">UA</button>
+        <button  onclick="changeLanguage('sk')">SK</button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="wedding-logo">
+                <img src="images/logo.png" alt="Wedding Logo">
+            </div>
+
+            <h1 data-key="hero-subtitle" class="name-outline">Ми одружуємось!</h1>
+            <p data-key="names" class="subtitle">Ганна & Владислав</p>
+            
+            <div class="date-badge" data-key="date">Збережи дату: <br>19.09.2026</div>
+
+        </div>
+    </header>
+    <img src="images/love.gif" alt="Cute Wedding Mascot Animation" class="mascot-animation">
+        <section class="gallery-section">
+        <div class="bento-grid">
+            <div class="bento-item tall" style="background-image: url('images/7.png');"></div>
+            
+            <div class="bento-item small" style="background-image: url('images/1.jpg');"></div>
+
+            <div class="bento-item middle" style="background-image: url('images/5.jpg');"></div>
+
+            <div class="bento-item " style="background-image: url('images/6.jpg');"></div>
+
+
+        </div>
+    </section>
+
+    <section class="travel-map-section">
+        <h2 class="gifts-title">Наша карта подорожей</h2> <div class="map-wrapper">
+            <img src="images/europe-map.png" class="base-map" alt="Europe Map">
+
+            <div class="map-point" style="top: 45%; left: 35%;">
+                <div class="photo-preview">
+                    <img src="images/paris.jpg" alt="Paris">
+                </div>
+                <span class="city-name">Париж</span>
+            </div>
+
+            <div class="map-point" style="top: 65%; left: 48%;">
+                <div class="photo-preview">
+                    <img src="images/rome.jpg" alt="Rome">
+                </div>
+                <span class="city-name">Рим</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="timer-section">
+        <!-- <h2 data-key="timer-text">До нашого свята залишилось:</h2> -->
+        <div class="timer-container">
+            <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-bpko" class="countdown-timer" data-style="columns" data-timezone="Europe/Bratislava" data-textcolor="#104006" data-date="2026-09-19 12:00" data-background="#fcfaf5" data-digitscolor="#104006" data-unitscolor="#104006">Coming soon</a>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="info-content">
+            <div class="info-fixed-grid">
+                <div class="info-text">
+                    <h2  data-key="location">Локація</h2>
+                    <p>Bratislava, Slovakia</p>
+                </div>
+                
+                <div class="info-map-wrapper">
+                   <div class="map-square">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85183.13626154157!2d17.0347065!3d48.1485965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c893603096297%3A0x639f868297884368!2sBratislava!5e0!3m2!1suk!2ssk!4v1700000000000!5m2!1suk!2ssk" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="gallery-section">
+        <div class="bento-grid">
+            
+
+            <div class="bento-item middle" style="background-image: url('images/14.jpg');"></div>
+
+            <div class="bento-item " style="background-image: url('images/3.jpg');"></div>
+
+            <div class="bento-item tall" style="background-image: url('images/4.jpg');"></div>
+            
+            <div class="bento-item small" style="background-image: url('images/0.jpg');"></div>
+
+
+        </div>
+    </section>
+    
+<section class="gifts-section">
+    <div class="gifts-container">
+        <h2 class="gifts-title">Побажання щодо подарунків</h2>
+        
+        <div class="gifts-content-wrapper">
+            <img src="images/cat.gif" alt="sitting cat" class="static-cat">
+            
+            <p class="gifts-text">
+                Ваша присутність на нашому святі — це вже найбільший дарунок для нас. 
+                Ми дуже цінуємо вашу увагу, і щоб подарунок точно став нам у пригоді, найкращим форматом буде конверт.
+            </p>
+            <p class="gifts-text">
+                Це допоможе нам здійснити нашу спільну мрію про власне затишне гніздечко та першу сімейну подорож. 
+                Ваша підтримка — це внесок у наше щасливе майбутнє, за що ми вам безмежно вдячні!
+            </p>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</section>
+    <section class="rsvp-section">
+    <div class="rsvp-card">
+        <h2 data-key="rsvp-title">Підтвердження присутності</h2>
+        <p data-key="rsvp-subtitle">Будь ласка, повідомте нам про вашу участь до 01.08.2026</p>
+        
+        <form action="https://formspree.io/f/xlgwenlj" method="POST" class="rsvp-form">
+            <div class="input-group">
+                <input type="text" name="name" id="name" required placeholder=" ">
+                <label for="name" data-key="label-name">Ваше ім'я та прізвище</label>
+            </div>
+
+            <div class="attendance-options">
+                <label class="radio-container">
+                    <input type="radio" name="attendance" value="Так (Прийде)" checked>
+                    <span class="checkmark"></span>
+                    <span data-key="option-yes">Я прийду</span>
+                </label>
+                <label class="radio-container">
+                    <input type="radio" name="attendance" value="Ні (Не прийде)">
+                    <span class="checkmark"></span>
+                    <span data-key="option-no">На жаль, не зможу</span>
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn" data-key="submit-btn">Надіслати</button>
+        </form>
+    </div>
+    </section>
+
+    <footer>
+        <p data-key="footer">Чекаємо на вас!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
