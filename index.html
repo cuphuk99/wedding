@@ -147,14 +147,32 @@
 
             <div class="attendance-options">
                 <label class="radio-container">
-                    <input type="radio" name="attendance" value="Так (Прийде)" checked>
+                    <input type="radio" name="attendance" value="Так (Прийде)" id="attendance-yes" >
                     <span class="checkmark"></span>
                     <span data-key="option-yes">Я прийду</span>
                 </label>
                 <label class="radio-container">
-                    <input type="radio" name="attendance" value="Ні (Не прийде)">
+                    <input type="radio" name="attendance" value="Ні (Не прийде)" id="attendance-no" checked>
                     <span class="checkmark"></span>
                     <span data-key="option-no">На жаль, не зможу</span>
+                </label>
+            </div>
+
+            <div id="accommodation-block" class="accommodation-question" style="display: block;">
+                <p style="text-align: left; color: var(--deep-forest); font-weight: bold; margin-bottom: 15px;" data-key="housing-question">
+                    Чи вам потрібна допомога з житлом на час святкування?
+                </p>
+                
+                <label class="radio-container">
+                    <input type="radio" name="housing_needed" value="Так (Потрібно)" required>
+                    <span class="checkmark"></span>
+                    <span data-key="housing-yes">Так, потрібна</span>
+                </label>
+                
+                <label class="radio-container">
+                    <input type="radio" name="housing_needed" value="Ні (Не потрібно)">
+                    <span class="checkmark"></span>
+                    <span data-key="housing-no">Ні, дякую</span>
                 </label>
             </div>
 

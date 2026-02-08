@@ -154,58 +154,34 @@ function updateScroll() {
         btn.classList.remove("show");
     }
 }
-// document.addEventListener('DOMContentLoaded', () => {
-//     const mascot = document.querySelector('.mascot-animation');
-//     if (!mascot) return;
+document.addEventListener('DOMContentLoaded', function() {
+    const attendanceYes = document.getElementById('attendance-yes');
+    const attendanceNo = document.getElementById('attendance-no');
+    const accommodationBlock = document.getElementById('accommodation-block');
+    const housingInputs = document.querySelectorAll('input[name="housing_needed"]');
 
-//     let lastPos = 0;
+    function toggleAccommodation() {
+        if (attendanceYes.checked) {
+            accommodationBlock.style.display = 'block';
+            // Робимо вибір житла обов'язковим, якщо людина прийде
+            housingInputs.forEach(input => input.required = true);
+        } else {
+            accommodationBlock.style.display = 'none';
+            // Знімаємо обов'язковість, якщо людина не прийде (щоб форма відправилась)
+            housingInputs.forEach(input => {
+                input.required = false;
+                input.checked = false; // Скидаємо вибір
+            });
+        }
+    }
 
-//     const startNewRun = () => {
-//         // 1. Скидаємо поточну анімацію
-//         mascot.style.animation = 'none';
-        
-//         // Маленька пауза перед новим забігом (наприклад, 1 секунда)
-//         setTimeout(() => {
-//             const vhToPx = (vh) => (vh * window.innerHeight) / 100;
-//             let newPosVH;
-//             let valid = false;
-//             let attempts = 0;
+    // Слухаємо зміни
+    attendanceYes.addEventListener('change', toggleAccommodation);
+    attendanceNo.addEventListener('change', toggleAccommodation);
 
-//             // 2. Рандомимо висоту (золота середина вільна)
-//             while (!valid && attempts < 20) {
-//                 const isBottomZone = Math.random() > 0.5;
-//                 newPosVH = isBottomZone ? (Math.random() * 20 + 5) : (Math.random() * 15 + 70);
-//                 if (Math.abs(vhToPx(newPosVH) - lastPos) > 100) {
-//                     valid = true;
-//                     lastPos = vhToPx(newPosVH);
-//                 }
-//                 attempts++;
-//             }
-
-//             mascot.style.bottom = newPosVH + 'vh';
-
-//             // 3. Вибираємо сторону (50% шанс)
-//             const runFromLeft = Math.random() > 0.5;
-//             const animName = runFromLeft ? 'runRight' : 'runLeft';
-//             const duration = Math.random() * 4 + 8; // Швидкість від 8 до 12 секунд
-
-//             // 4. Запускаємо анімацію
-//             // Додаємо параболічний ефект (bounceEffect) прямо в рядок анімації через кому
-//             mascot.style.animation = `${animName} ${duration}s linear forwards, bounceEffect 2s ease-in-out infinite alternate`;
-//         }, 1000); 
-//     };
-
-//     // Коли анімація пробіжки закінчується — запускаємо нову
-//     mascot.addEventListener('animationend', (e) => {
-//         // Перевіряємо, щоб це закінчилась саме основна пробіжка, а не bounce
-//         if (e.animationName === 'runRight' || e.animationName === 'runLeft') {
-//             startNewRun();
-//         }
-//     });
-
-//     // Перший старт
-//     startNewRun();
-// });
+    // Запускаємо один раз при завантаженні, щоб перевірити початковий стан
+    toggleAccommodation();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const mascot = document.querySelector('.mascot-animation');
