@@ -12,7 +12,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Cormorant Garamond', serif;
     background-color: var(--bg-light);
     color: var(--deep-forest);
     text-align: center;
@@ -20,38 +21,86 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2 {
+h1 {
     font-family: 'Playfair Display', serif;
     margin: 0;
 }
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    margin: 0;
+}
+p {
+    font-family: 'Cormorant Garamond', serif;
+    margin: 0;
+}
 
-/* --- HERO СЕКЦІЯ (МОБІЛЬНА) --- */
+/* --- HERO СЕКЦІЯ (НА ВЕСЬ ЕКРАН) --- */
 .hero {
-    min-height: 80vh; /* Більше місця на телефонах */
-    height: auto;
-    position: relative; /* Додаємо це */
+    /* Заповнює рівно 100% висоти видимого екрана */
+    height: 100svh; 
+    min-height: 100svh;
+    
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f4eee1;
-    padding: 60px 20px;
+    background-color: #f2eee2;
     border-bottom: 1px solid #e0d8c3;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
+/* Мобільний розмір заголовка - робимо трохи більшим, раз у нас тепер багато місця */
 .hero-content h1 {
-    font-size: 3.3rem;
+    /* Автоматично підлаштовується під ширину екрана */
+    font-size: clamp(2.2rem, 9vw, 5.5rem); 
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    line-height: 1.2;
+    letter-spacing: 2px;
+    line-height: 1.1;
     margin-bottom: 10px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
+/* Контейнер вмісту */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Стилі для логотипа */
+.wedding-logo {
+    margin-bottom: 45px; /* Відступ від лого до тексту */
+    display: flex;
+    justify-content: center;
+}
+
+.wedding-logo img {
+    width: 220px; /* Базовий розмір для мобільних */
+    height: auto;
+    /* Якщо лого має бути в кольорі deep-forest, а воно чорне, можна використати фільтр:
+       filter: brightness(0) saturate(100%) invert(14%) sepia(85%) saturate(1210%) hue-rotate(85deg) brightness(92%) contrast(101%); 
+    */
+}
+
+/* Адаптація розміру лого для ПК */
+@media (min-width: 992px) {
+    .wedding-logo {
+        margin-bottom: 0px;
+    }
+    .wedding-logo img {
+        width: 180px; /* Більше лого на великих екранах */
+    }
+}
+/* Штриховка (тепер без фіксованого розміру тут, бо він береться з h1) */
 .name-outline {
     display: block;
-    /* Тонка лінія, яку ти знайшов */
     -webkit-text-stroke: 1px var(--deep-forest);
-    
-    /* Створюємо штриховку */
     background: repeating-linear-gradient(
         45deg,
         transparent,
@@ -59,56 +108,82 @@ h1, h2 {
         var(--deep-forest) 2px,
         var(--deep-forest) 3px
     );
-    
-    /* Накладаємо фон тільки на текст */
     -webkit-background-clip: text;
     background-clip: text;
-    
-    /* Робимо колір тексту прозорим, щоб було видно штриховку */
     color: transparent;
-    
-    /* Додаємо невелику затримку для плавності, якщо буде анімація */
     transition: all 0.3s ease;
 }
-
+/* Оновлений підзаголовок (Владислав & Ганна) */
 .subtitle {
-    /* Підключаємо витончений шрифт */
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-weight: 500; /* Напівжирний виглядає краще для заголовків */
-    
-    font-size: 2.1rem;
-    letter-spacing: 1px; /* Для курсиву краще не розтягувати надто сильно */
+    font-weight: 500;
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20px;
+    letter-spacing: 0.5px;
     line-height: 1.1;
-    margin-bottom: 10px;
-    margin-top: 15px;
-    
-    text-transform: none; /* Рекомендую 'none' для класичного курсиву */
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-transform: none;
     color: var(--olive-medium);
-    
-    /* Додамо легкий ефект, щоб текст "дихав" */
     display: block;
-    word-spacing: 2px;
+    text-align: center;
 }
 
-/* Окремо для великих екранів, щоб не було занадто масивно */
+/* На великих екранах ми можемо трохи підкоригувати пропорції */
 @media (min-width: 992px) {
     .subtitle {
-        font-size: 2.5rem;
+        font-size: clamp(2.5rem, 5vw, 4rem); /* На ПК 5vw достатньо, щоб текст був великим, але не надмірним */
         margin-top: 20px;
+    }
+    .date-badge {
+        font-size: clamp(2rem, 4vw, 6rem); 
+    }
+}
+@media (max-width: 992px) {
+
+    .date-badge {
+       font-size: clamp(3rem, 8vw, 6rem); 
     }
 }
 
 .date-badge {
-    margin-top: 25px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border: 1px solid var(--deep-forest);
-    padding: 10px 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    /* Важливо: прибираємо штриховку, бо вона псує тонкі лінії */
+    -webkit-text-stroke: 0; 
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    
+    /* Робимо колір суцільним і глибоким */
+    color: var(--olive-medium);
+    
+    /* Вимикаємо капслок, якщо він десь успадкувався */
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.2;
+    display: block;
+    margin: 20px auto;
+    
+    /* Додаємо легку елегантність */
+    font-weight: 400;
 }
 
+.accommodation-question {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+#accommodation-block {
+    animation: fadeIn 0.4s ease-in-out;
+}
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* --- BENTO ГАЛЕРЕЯ (ФІКСОВАНА СТРУКТУРА) --- */
 .gallery-section {
@@ -158,9 +233,9 @@ h1, h2 {
 .lang-switcher button {
     background: none;
     border: none;
-    padding: 5px 8px;
+    padding: 7px 11px;
     font-family: 'Lato', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     font-weight: 800; /* Робимо текст жирним */
     color: var(--deep-forest);
     cursor: pointer;
@@ -196,7 +271,7 @@ h1, h2 {
 
 /* --- RSVP ТА ІНФО (МОБІЛЬНІ) --- */
 .rsvp-section, .info {
-    padding: 60px 15px;
+    padding: 10px 20px;
 }
 
 .rsvp-card, .info-content {
@@ -286,46 +361,44 @@ h1, h2 {
 
 .timer-container {
     width: 100%;
-    /* transform: scale(0.85); Щоб влізло в екран */
 }
 
 /* --- ВЕЛИКІ ЕКРАНИ (DESKTOP) --- */
 @media (min-width: 992px) {
-    .hero { height: 90vh; }
+    .hero { height: 70vh; }
     
     .hero-content h1 {
         font-size: 5rem;
         letter-spacing: 6px;
     }
 
-    /* .name-outline { -webkit-text-stroke: 2px var(--deep-forest); } */
     .name-outline {
-    font-size: 5rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    
-    /* Колір обводки */
-    -webkit-text-stroke: 1px var(--deep-forest);
-    
-    /* Створення штриховки через градієнт */
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 2px,
-        var(--deep-forest) 2px,
-        var(--deep-forest) 4px
-    );
-    
-    /* Магія: накладаємо фон тільки на текст */
-    -webkit-background-clip: text;
-    background-clip: text;
-    
-    /* Робимо саму заливку букв прозорою, щоб було видно штриховку */
-    color: transparent;
-    
-    /* Додаємо легку тінь для об'єму (опціонально) */
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
-}
+        font-size: 5rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        
+        /* Колір обводки */
+        -webkit-text-stroke: 1px var(--deep-forest);
+        
+        /* Створення штриховки через градієнт */
+        background: repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            var(--deep-forest) 2px,
+            var(--deep-forest) 4px
+        );
+        
+        /* Магія: накладаємо фон тільки на текст */
+        -webkit-background-clip: text;
+        background-clip: text;
+        
+        /* Робимо саму заливку букв прозорою, щоб було видно штриховку */
+        color: transparent;
+        
+        /* Додаємо легку тінь для об'єму (опціонально) */
+        text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+    }
 
     .timer-container { transform: scale(1.1); }
     
@@ -449,32 +522,42 @@ h1, h2 {
 
 .info-fixed-grid {
     display: flex;
-    flex-direction: row !important; /* Гарантуємо, що мапа не впаде вниз */
-    align-items: center;
-    gap: 20px;
+    /* Елементи один під одним */
+    flex-direction: column !important; 
+    /* Центруємо елементи по горизонталі */
+    align-items: center; 
+    gap: 30px;
     width: 100%;
 }
 
 .info-text {
-    flex: 1; /* Текст забирає решту простору */
-    text-align: left;
+    width: 100%;
+    /* Центруємо текст всередині блоку */
+    text-align: center;
+}
+
+.info-text h2 {
+    /* Додатково переконуємось, що заголовок по центру */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .info-map-wrapper {
-    /* Встановлюємо ширину рівно 45% і не дозволяємо їй зменшуватись */
-    flex: 0 0 65%; 
-    min-width: 65%; 
+    width: 100%;
+    flex: none;
 }
 
 .map-square {
     width: 100%;
-    /* Це магічний рядок, який робить блок квадратом незалежно від ширини */
-    aspect-ratio: 1 / 1; 
-    border-radius: 15px; /* Заокруглення як на твоїх скріншотах */
+    /* Висота = половина ширини (2:1) */
+    aspect-ratio: 2 / 1; 
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid #e0d8c3;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
     position: relative;
+    /* Центруємо саму мапу, якщо вона раптом матиме max-width */
+    margin: 0 auto;
 }
 
 .map-square iframe {
@@ -486,6 +569,19 @@ h1, h2 {
     border: 0;
 }
 
+/* Адаптація для мобільних: робимо мапу трохи вищою для зручності */
+@media (max-width: 700px) {
+    .map-square {
+        aspect-ratio: 1.5 / 1; 
+    }
+}
+
+/* На дуже великих екранах обмежуємо висоту, щоб мапа не була гігантською */
+@media (min-width: 1200px) {
+    .map-square {
+        max-height: 450px;
+    }
+}
 /* Для дуже маленьких екранів, щоб текст не злипався */
 @media (max-width: 380px) {
     .info-fixed-grid {
@@ -497,53 +593,74 @@ h1, h2 {
 }
 
 
-/* Секція Дрес-код - Виправлено */
+/* Секція Дрес-код */
 .dress-code {
-    padding: 100px 20px;
+    padding: 120px 0px; /* Збільшив вертикальні відступи для простору */
     background-color: var(--bg-light);
     border-top: 1px solid #e0d8c3;
+    text-align: center; /* Центруємо заголовок і текст */
+}
+
+.dress-code-description {
+    max-width: 600px;
+    margin: 0 auto 40px; /* Центруємо текст і даємо відступ до палітри */
+    line-height: 1.6;
+    color: var(--deep-forest);
+    font-size: 1.1rem;
+}
+
+/* Обгортка для центрування сітки */
+.color-palette-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .color-palette {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Відстань між кружечками */
-    flex-wrap: wrap;
-    margin-top: 35px;
+    display: grid;
+    max-width: 800px;
+    margin: 40px auto 0;
+    /* 6 колонок на великих екранах, 4 на маленьких */
+    grid-template-columns: repeat(5, 1fr);  
+    gap: 20px;
+    width: fit-content;
 }
 
 .color-circle {
-    display: inline-block; /* Або block, якщо використовуєш flex */
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 2px solid #e0d8c3;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    background-clip: padding-box; /* Важливо для коректного вигляду рамки */
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ефект при наведенні або кліку */
-.color-circle:hover, .color-circle.active {
-    transform: scale(1.2);
-    border-color: var(--deep-forest);
-    box-shadow: 0 5px 15px rgba(16, 64, 6, 0.15);
+.color-circle:hover {
+    transform: translateY(-5px);
 }
 
-.color-name-display {
-    margin-top: 25px;
-    font-family: 'Playfair Display', serif; /* Зробимо назву кольору елегантнішою */
-    font-size: 1.2rem;
-    color: var(--deep-forest);
-    font-style: italic;
-    min-height: 1.5rem;
-    transition: opacity 0.3s ease;
+.color-circle.active {
+    transform: scale(1.4);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: #fff;
 }
 
-@media (max-width: 600px) {
+/* Адаптація для мобільних */
+@media (max-width: 650px) {
+    .color-palette {
+        grid-template-columns: repeat(5, 1fr); /* 4 колонки на телефонах */
+        gap: 12px;
+    }
+    
     .color-circle {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .dress-code {
+        padding: 40px 15px;
     }
 }
 
@@ -602,7 +719,7 @@ h1, h2 {
 
     /* 4. RSVP SECTION - центруємо картку */
     .rsvp-section {
-        padding: 100px 0;
+        padding: 50px 0;
     }
 
     .rsvp-card {
@@ -639,9 +756,206 @@ h1, h2 {
 /* Додатковий фікс для ультрашироких екранів */
 @media (min-width: 1600px) {
     .hero-content h1 {
-        font-size: 8rem;
+        font-size: 7rem;
     }
     .bento-grid {
         max-width: 1400px;
+    }
+}
+
+
+.mascot-animation {
+    position: fixed;
+    width: 150px;
+    z-index: 99999;
+    pointer-events: auto; 
+    cursor: pointer;
+    left: -250px;
+    /* transition тільки для плавної втечі, без розмиття */
+    transition: left 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease;
+}
+
+/* Анімація: Зліва направо */
+@keyframes runRight {
+    0% { left: -250px; transform: scaleX(1); }
+    100% { left: 115%; transform: scaleX(1); }
+}
+
+/* Анімація: Справа наліво (котик віддзеркалений) */
+@keyframes runLeft {
+    0% { left: 115%; transform: scaleX(-1); }
+    100% { left: -250px; transform: scaleX(-1); }
+}
+
+/* Клас для параболічного "підстрибування" */
+.mascot-bounce {
+    animation: bounceEffect 2s ease-in-out infinite alternate;
+}
+
+@keyframes bounceEffect {
+    from { margin-top: 0; }
+    to { margin-top: -30px; }
+}
+
+.gifts-section {
+    padding: 20px 20px;
+    background-color: #fcfaf7;
+    display: flex;
+    justify-content: center;
+}
+
+.gifts-container {
+    max-width: 700px;
+    width: 100%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.gifts-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    color: var(--deep-forest);
+    text-transform: none;
+    font-weight: 400;
+    margin-bottom: 30px;
+    -webkit-text-stroke: 0;
+}
+/* Стилі для котика, якого обтікає текст */
+.static-cat {
+    float: left; /* Притискаємо до лівого краю */
+    width: 160px; /* Розмір котика */
+    height: auto;
+    margin-right: 20px; /* Відступ тексту від котика */
+    margin-top: 10px;
+    
+    /* Робимо обтікання більш гнучким */
+    shape-outside: inset(0 0 0 0); 
+    user-select: none;
+    pointer-events: none;
+}
+.gifts-text {
+    font-family: 'Lato', sans-serif; /* Повертаємо читабельний шрифт для тексту */
+    text-align: left; /* Краще для обтікання, ніж justify */
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: justify; /* Щоб обтікання виглядало акуратніше */
+}
+.centered{
+    width: 100%;
+    text-align: center;
+}
+
+/* Адаптація для маленьких екранів */
+@media (max-width: 680px) {
+    .static-cat {
+        width: 100px; /* Зменшуємо на телефонах */
+        margin-right: 15px;
+    }
+    .gifts-text {
+        font-size: 16px;
+    }
+}   
+
+
+
+.travel-map-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--bg-light);
+}
+
+.map-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    /* Щоб точки не виходили за межі */
+    overflow: visible; 
+}
+
+.base-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.8; /* Робимо карту фоном, щоб фото виділялися */
+}
+
+/* Стиль точки (піна) */
+.map-point {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%); /* Центруємо точку */
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Контейнер фото */
+.photo-preview {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Кругле фото */
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ефект при наведенні (Hover) */
+.map-point:hover {
+    z-index: 100; /* Фото виходить на передній план */
+}
+
+.map-point:hover .photo-preview {
+    transform: scale(3.5); /* Збільшуємо фото в 3.5 рази */
+    border-radius: 10px;  /* Стає прямокутним для кращого вигляду */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.city-name {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    transition: opacity 0.3s;
+    color: #fdfaf5; /* Світлий колір для темної мапи */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Щоб текст "читався" на будь-якому фоні */
+}
+
+.map-point:hover .city-name {
+    opacity: 0; /* Ховаємо назву міста, коли фото велике */
+}
+
+@media (max-width: 768px) {
+    .map-wrapper {
+        overflow-x: auto; /* Дозволяємо скрол вбік */
+        width: 100%;
+        display: block;
+        cursor: grab;
+    }
+    
+    .base-map {
+        min-width: 600px; /* Карта не стискається менше 600px */
+    }
+
+    .photo-preview {
+        width: 30px; /* Трохи менші точки на мобільних */
+        height: 30px;
+    }
+
+    /* На мобільних збільшення робимо меншим, щоб не вилазило за екран */
+    .map-point:active .photo-preview {
+        transform: scale(2.5);
     }
 }

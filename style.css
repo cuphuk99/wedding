@@ -12,17 +12,65 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Cormorant Garamond', serif;
     background-color: var(--bg-light);
     color: var(--deep-forest);
     text-align: center;
     line-height: 1.6;
     overflow-x: hidden;
 }
+/* Уніфікований контейнер для білих карток */
+.section-card {
+    max-width: 800px; /* Єдина максимальна ширина для всіх блоків */
+    width: 90%;      /* Відступ від країв екрана на планшетах */
+    margin: 0 auto;  /* Центрування */
+    background: var(--white);
+    padding: 40px 40px; /* Єдині внутрішні відступи для ПК */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+}
 
-h1, h2 {
+/* Уніфіковані відступи між секціями */
+section {
+    padding: 20px 0; /* Однаковий простір зверху і знизу кожної секції */
+}
+
+@media (max-width: 768px) {
+    .section-card {
+        padding: 40px 20px; /* Адаптивні відступи для мобільних */
+        width: 95%;
+    }
+    section {
+        padding: 20px 0;
+    }
+}
+h1 {
     font-family: 'Playfair Display', serif;
     margin: 0;
+}
+h2 {
+    margin: 0px;
+    margin-bottom: 0px;
+        font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--deep-forest);
+    text-transform: none;
+    font-weight: 300;
+    -webkit-text-stroke: 0;
+    
+}
+/* h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    margin: 0;
+    
+} */
+p {
+    font-family: 'Cormorant Garamond', serif;
+    margin: 0;
+    font-size: 23px
 }
 
 /* --- HERO СЕКЦІЯ (НА ВЕСЬ ЕКРАН) --- */
@@ -149,10 +197,7 @@ h1, h2 {
     background-clip: initial;
     
     /* Робимо колір суцільним і глибоким */
-    color: var(--deep-forest);
-    
-    /* Налаштовуємо розмір: рукописні шрифти мають бути великими */
-    /* font-size: clamp(3rem, 8vw, 6rem);  */
+    color: var(--olive-medium);
     
     /* Вимикаємо капслок, якщо він десь успадкувався */
     text-transform: none;
@@ -178,38 +223,62 @@ h1, h2 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- BENTO ГАЛЕРЕЯ (ФІКСОВАНА СТРУКТУРА) --- */
+/* --- BENTO ГАЛЕРЕЯ: SMART RATIO --- */
 .gallery-section {
     padding: 40px 12px;
 }
 
 .bento-grid {
     display: grid;
-    /* Завжди 2 колонки, незалежно від пристрою */
-    grid-template-columns: repeat(2, 1fr); 
-    grid-auto-rows: 90px;
+    grid-template-columns: repeat(2, 1fr); /* Завжди 2 колонки */
     gap: 12px;
-    max-width: 1000px; /* Обмежуємо ширину на ПК, щоб фото не були гігантськими */
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .bento-item {
+    width: 100%;
+    border-radius: 20px;
     background-size: cover;
     background-position: center;
-    border-radius: 20px;
-    grid-row: span 3; /* Базовий розмір (квадрат/прямокутник) */
+    /* Базова пропорція — квадрат */
+    aspect-ratio: 1 / 1; 
 }
 
-/* Твої класи висоти */
-.bento-item.tall { grid-row: span  6}
-.bento-item.middle { grid-row: span 5; }
-.bento-item.small { grid-row: span 4; }
+/* Налаштовуємо пропорції для різних типів фото */
 
-/* На ПК просто трохи збільшуємо базовий крок, щоб галерея не була занадто дрібною */
+/* Вертикальне фото (Портрет) */
+.bento-item.tall {
+    aspect-ratio: 4 / 6; 
+    grid-row: span 2; /* Займає два "поверхи" у сітці */
+}
+
+/* Горизонтальне або велике головне фото */
+.bento-item.wide {
+    aspect-ratio: 16 / 9;
+    grid-column: span 2; /* На всю ширину */
+}
+
+/* Квадратне, але велике */
+.bento-item.big-square {
+    aspect-ratio: 1 / 1;
+    grid-column: span 2;
+}
+
+/* На комп'ютерах збільшуємо відступи, але пропорції лишаються тими ж */
 @media (min-width: 992px) {
     .bento-grid {
-       grid-auto-rows: 140px; /* Збільшуємо висоту сегмента для великих екранів */
+        grid-template-columns: repeat(4, 1fr); /* На ПК можна зробити 4 колонки для цікавішого вигляду */
         gap: 20px;
+    }
+    
+    .bento-item.tall {
+        grid-row: span 2;
+    }
+    
+    .bento-item.wide {
+        grid-column: span 2;
+        aspect-ratio: 2 / 1;
     }
 }
 
@@ -264,7 +333,7 @@ h1, h2 {
 
 /* --- RSVP ТА ІНФО (МОБІЛЬНІ) --- */
 .rsvp-section, .info {
-    padding: 40px 15px;
+    padding: 10px 20px;
 }
 
 .rsvp-card, .info-content {
@@ -276,10 +345,6 @@ h1, h2 {
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
 }
 
-.input-group input {
-    font-size: 1rem;
-    padding: 12px 0;
-}
 
 /* --- ФІКСОВАНІ ЕЛЕМЕНТИ (МОБІЛЬНІ) --- */
 #progress-container {
@@ -356,6 +421,8 @@ h1, h2 {
     width: 100%;
 }
 
+
+
 /* --- ВЕЛИКІ ЕКРАНИ (DESKTOP) --- */
 @media (min-width: 992px) {
     .hero { height: 70vh; }
@@ -414,7 +481,7 @@ h1, h2 {
 
 /* --- СТИЛІ ФОРМИ RSVP --- */
 .rsvp-form {
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: left;
 }
 
@@ -422,11 +489,10 @@ h1, h2 {
     position: relative;
     margin-bottom: 35px;
 }
-
 .input-group input {
     width: 100%;
     padding: 10px 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem; /* Збільшено з 1.4rem */
     color: var(--text-main);
     border: none;
     border-bottom: 1px solid #ccc;
@@ -442,13 +508,14 @@ h1, h2 {
     color: var(--text-muted);
     transition: 0.3s;
     pointer-events: none;
+    font-size: 1.4rem; /* Додайте цей рядок, щоб стартовий розмір був великим */
 }
 
 /* Анімація підняття тексту при кліку в поле */
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
-    top: -20px;
-    font-size: 0.85rem;
+    top: -25px; /* Трохи підняв вище, щоб не налізало на збільшений текст */
+    font-size: 1.2rem; /* Збільшено з 1.0rem */
     color: var(--deep-forest);
 }
 
@@ -463,7 +530,7 @@ h1, h2 {
     padding-left: 35px;
     margin-bottom: 15px;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: var(--deep-forest);
     text-align: left;
 }
@@ -581,58 +648,79 @@ h1, h2 {
         gap: 10px;
     }
     .info-text h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
 
 
-/* Секція Дрес-код - Виправлено */
+/* Секція Дрес-код */
 .dress-code {
-    padding: 10px 20px;
+    padding: 120px 0px; /* Збільшив вертикальні відступи для простору */
     background-color: var(--bg-light);
     border-top: 1px solid #e0d8c3;
+    text-align: center; /* Центруємо заголовок і текст */
+}
+
+.dress-code-description {
+    max-width: 600px;
+    margin: 0 auto 40px; /* Центруємо текст і даємо відступ до палітри */
+    line-height: 1.6;
+    color: var(--text-muted);
+    font-size: 1.4rem;
+}
+
+/* Обгортка для центрування сітки */
+.color-palette-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .color-palette {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Відстань між кружечками */
-    flex-wrap: wrap;
-    margin-top: 35px;
+    display: grid;
+    max-width: 800px;
+    margin: 40px auto 0;
+    /* 6 колонок на великих екранах, 4 на маленьких */
+    grid-template-columns: repeat(5, 1fr);  
+    gap: 20px;
+    width: fit-content;
 }
 
 .color-circle {
-    display: inline-block; /* Або block, якщо використовуєш flex */
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    border: 2px solid #e0d8c3;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    background-clip: padding-box; /* Важливо для коректного вигляду рамки */
+    border: 2px solid white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ефект при наведенні або кліку */
-.color-circle:hover, .color-circle.active {
-    transform: scale(1.2);
-    border-color: var(--deep-forest);
-    box-shadow: 0 5px 15px rgba(16, 64, 6, 0.15);
+.color-circle:hover {
+    transform: translateY(-5px);
 }
 
-.color-name-display {
-    margin-top: 25px;
-    font-family: 'Playfair Display', serif; /* Зробимо назву кольору елегантнішою */
-    font-size: 1.2rem;
-    color: var(--deep-forest);
-    font-style: italic;
-    min-height: 1.5rem;
-    transition: opacity 0.3s ease;
+.color-circle.active {
+    transform: scale(1.4);
+    z-index: 10;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: #fff;
 }
 
-@media (max-width: 600px) {
+/* Адаптація для мобільних */
+@media (max-width: 650px) {
+    .color-palette {
+        grid-template-columns: repeat(5, 1fr); /* 4 колонки на телефонах */
+        gap: 12px;
+    }
+    
     .color-circle {
         width: 50px;
         height: 50px;
+    }
+
+    .dress-code {
+        padding: 40px 15px;
     }
 }
 
@@ -709,7 +797,7 @@ h1, h2 {
 
     /* 6. ТАЙМЕР - щоб не був гігантським */
     .timer-container {
-        max-width: 900px;
+        max-width: 90%;
         margin: 0 auto;
         transform: scale(1.2); /* Повертаємо маштаб, але в межах контейнера */
     }
@@ -728,7 +816,7 @@ h1, h2 {
 /* Додатковий фікс для ультрашироких екранів */
 @media (min-width: 1600px) {
     .hero-content h1 {
-        font-size: 8rem;
+        font-size: 7rem;
     }
     .bento-grid {
         max-width: 1400px;
@@ -788,17 +876,17 @@ h1, h2 {
 
 .gifts-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4rem);
     color: var(--deep-forest);
     text-transform: none;
-    font-weight: 400;
+    font-weight: 300;
     margin-bottom: 30px;
     -webkit-text-stroke: 0;
 }
 /* Стилі для котика, якого обтікає текст */
 .static-cat {
     float: left; /* Притискаємо до лівого краю */
-    width: 150px; /* Розмір котика */
+    width: 160px; /* Розмір котика */
     height: auto;
     margin-right: 20px; /* Відступ тексту від котика */
     margin-top: 10px;
@@ -809,23 +897,27 @@ h1, h2 {
     pointer-events: none;
 }
 .gifts-text {
-    font-family: 'Lato', sans-serif; /* Повертаємо читабельний шрифт для тексту */
+    /* font-family: 'Lato', sans-serif; Повертаємо читабельний шрифт для тексту */
     text-align: left; /* Краще для обтікання, ніж justify */
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.7;
     color: #555;
     margin-bottom: 15px;
     text-align: justify; /* Щоб обтікання виглядало акуратніше */
 }
+.centered{
+    width: 100%;
+    text-align: center;
+}
 
 /* Адаптація для маленьких екранів */
-@media (max-width: 480px) {
+@media (max-width: 680px) {
     .static-cat {
-        width: 100px; /* Зменшуємо на телефонах */
+        width: 120px; /* Зменшуємо на телефонах */
         margin-right: 15px;
     }
     .gifts-text {
-        font-size: 16px;
+        font-size: 22px;
     }
 }   
 
@@ -893,11 +985,12 @@ h1, h2 {
 
 .city-name {
     display: block;
-    font-size: 12px;
+    font-size: 22px;
     font-weight: bold;
-    color: var(--deep-forest);
     margin-top: 5px;
     transition: opacity 0.3s;
+    color: #fdfaf5; /* Світлий колір для темної мапи */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Щоб текст "читався" на будь-якому фоні */
 }
 
 .map-point:hover .city-name {
@@ -925,4 +1018,148 @@ h1, h2 {
     .map-point:active .photo-preview {
         transform: scale(2.5);
     }
+}
+.wedding-gallery {
+    background: var(--bg-light);
+    padding: 20px 0;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+    text-align: center;
+}
+
+/* Логіка перемикання */
+.carousel > input {
+    /* Замість clip використовуємо повне приховування без видалення з потоку */
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    /* Важливо: прибираємо фокусування, яке змушує браузер скролити */
+    visibility: hidden; 
+}
+
+/* Пересування слайдів */
+#slide-1:checked ~ .carousel__slides .carousel__slide { transform: translateX(0%); }
+#slide-2:checked ~ .carousel__slides .carousel__slide { transform: translateX(-100%); }
+#slide-3:checked ~ .carousel__slides .carousel__slide { transform: translateX(-200%); }
+#slide-4:checked ~ .carousel__slides .carousel__slide { transform: translateX(-300%); }
+#slide-5:checked ~ .carousel__slides .carousel__slide { transform: translateX(-400%); }
+#slide-6:checked ~ .carousel__slides .carousel__slide { transform: translateX(-500%); }
+#slide-7:checked ~ .carousel__slides .carousel__slide { transform: translateX(-600%); }
+#slide-8:checked ~ .carousel__slides .carousel__slide { transform: translateX(-700%); }
+
+/* Активна мініатюра */
+#slide-1:checked ~ .carousel__thumbnails li:nth-of-type(1) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-2:checked ~ .carousel__thumbnails li:nth-of-type(2) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-3:checked ~ .carousel__thumbnails li:nth-of-type(3) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-4:checked ~ .carousel__thumbnails li:nth-of-type(4) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-5:checked ~ .carousel__thumbnails li:nth-of-type(5) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-6:checked ~ .carousel__thumbnails li:nth-of-type(6) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-7:checked ~ .carousel__thumbnails li:nth-of-type(7) img { border-color: var(--deep-forest); opacity: 1; }
+#slide-8:checked ~ .carousel__thumbnails li:nth-of-type(8) img { border-color: var(--deep-forest); opacity: 1; }
+
+
+.carousel__slides {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+}
+
+/* Контейнер для фото (твої відсотки ширини) */
+.img-wrapper {
+    position: relative;
+    width: 75%; /* 75% для мобільних за замовчуванням */
+    max-width: 800px;
+    aspect-ratio: 3 / 4; /* Вертикальна орієнтація */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Мініатюри */
+.carousel__thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 20px auto 0;
+    width: 90%;
+}
+
+.carousel__thumbnails li {
+    flex: 0 1 60px;
+}
+
+.carousel__thumbnails img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+/* ДЕКСТОП НАЛАШТУВАННЯ */
+@media (min-width: 992px) {
+    .img-wrapper {
+        width: 50%; /* 50% для комп'ютерів */
+    }
+    
+    .carousel__thumbnails li {
+        flex: 0 1 80px;
+    }
+}
+
+/* --- РЕВЕРСИВНА СЕКЦІЯ ПОДАРУНКІВ (ВИПРАВЛЕНО) --- */
+.gifts-section--reversed {
+    background-color: #f2eee2; /* Фон самої секції лишаємо світлим або таким, як у всього сайту */
+}
+
+/* Робимо саме "прямокутник" (картку) зеленим */
+.gifts-section--reversed .section-card {
+    background-color: #0d2708 !important; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border: 1px solid rgba(253, 250, 245, 0.1);
+}
+
+/* Текст та заголовок всередині цієї картки робимо світлим */
+.gifts-section--reversed .gifts-title {
+    color:#f2eee2 !important;
+}
+
+.gifts-section--reversed .gifts-text {
+    color: #f2eee2 !important;
+    opacity: 0.9;
+    font-size: 23px;
 }

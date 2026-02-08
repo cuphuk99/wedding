@@ -11,7 +11,9 @@
 </head>
 <body>
     <div id="leaf-container"></div>
-    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
     <nav class="lang-switcher">
         <button  onclick="changeLanguage('ua')">UA</button>
         <button  onclick="changeLanguage('sk')">SK</button>
@@ -31,50 +33,72 @@
         </div>
     </header>
     <img src="images/love.gif" alt="Cute Wedding Mascot Animation" class="mascot-animation">
-        <section class="gallery-section">
-        <div class="bento-grid">
-            <div class="bento-item tall" style="background-image: url('images/7.PNG');"></div>
-            
-            <div class="bento-item small" style="background-image: url('images/1.JPG');"></div>
-
-            <div class="bento-item middle" style="background-image: url('images/5.JPG');"></div>
-
-            <div class="bento-item " style="background-image: url('images/6.JPG');"></div>
-
-
-        </div>
-    </section>
-
-    <section class="travel-map-section">
-        <h2 class="gifts-title">Наша карта подорожей</h2> <div class="map-wrapper">
-            <img src="images/europe-map.png" class="base-map" alt="Europe Map">
-
-            <div class="map-point" style="top: 45%; left: 35%;">
-                <div class="photo-preview">
-                    <img src="images/paris.jpg" alt="Paris">
-                </div>
-                <span class="city-name">Париж</span>
-            </div>
-
-            <div class="map-point" style="top: 65%; left: 48%;">
-                <div class="photo-preview">
-                    <img src="images/rome.jpg" alt="Rome">
-                </div>
-                <span class="city-name">Рим</span>
-            </div>
-        </div>
-    </section>
-
+    
     <section class="timer-section">
         <!-- <h2 data-key="timer-text">До нашого свята залишилось:</h2> -->
         <div class="timer-container">
             <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-bpko" class="countdown-timer" data-style="columns" data-timezone="Europe/Bratislava" data-textcolor="#104006" data-date="2026-09-19 12:00" data-background="#fcfaf5" data-digitscolor="#104006" data-unitscolor="#104006">Coming soon</a>
+            <a href="https://logwork.com/countdown-bpko" class="countdown-timer" data-style="columns" data-timezone="Europe/Bratislava" data-textcolor="#104006" data-date="2026-09-19 12:00" data-background="#fcfaf5" data-digitscolor="#104006" data-unitscolor="#104006">Coming soon</a>
+        </div>
+    </section>
+
+    <section class="wedding-gallery">
+        <div class="carousel-container">
+            <div class="carousel">
+                <input type="radio" name="slides" checked="checked" id="slide-1">
+                <input type="radio" name="slides" id="slide-2">
+                <input type="radio" name="slides" id="slide-3">
+                <input type="radio" name="slides" id="slide-4">
+                <input type="radio" name="slides" id="slide-5">
+                <input type="radio" name="slides" id="slide-6">
+                <input type="radio" name="slides" id="slide-7">
+                <input type="radio" name="slides" id="slide-8">
+                
+                <ul class="carousel__slides">
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/1.JPG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/2.JPG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/3.JPG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/7.PNG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/4.JPG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/14.JPG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/13.JPG" alt=""></div>
+                    </li>
+                    <li class="carousel__slide">
+                        <div class="img-wrapper"><img src="images/12.JPG" alt=""></div>
+                    </li>
+                </ul>    
+                
+                <ul class="carousel__thumbnails">
+                    <li><label for="slide-1"><img src="images/1.JPG"></label></li>
+                    <li><label for="slide-2"><img src="images/2.JPG"></label></li>
+                    <li><label for="slide-3"><img src="images/3.JPG"></label></li>
+                    <li><label for="slide-4"><img src="images/7.PNG"></label></li>
+                    <li><label for="slide-5"><img src="images/4.JPG"></label></li>
+                    <li><label for="slide-6"><img src="images/14.JPG"></label></li>
+                    <li><label for="slide-7"><img src="images/13.JPG"></label></li>
+                    <li><label for="slide-8"><img src="images/12.JPG"></label></li>
+
+
+                </ul>
+            </div>
         </div>
     </section>
 
     <section class="info">
-        <div class="info-content">
+        <div class="section-card">
             <div class="info-fixed-grid">
                 <div class="info-text">
                     <h2  data-key="location">Локація</h2>
@@ -99,45 +123,79 @@
     </section>
 
 
-    <section class="gallery-section">
-        <div class="bento-grid">
+    <section class="gifts-section">
+        <div class="section-card">
             
+        <h2 class="section-title"  data-key="dresscode-title">Дрес-код</h2>
+            <p class="dress-code-description">
+                Ми будемо дуже вдячні, якщо ви підтримаєте колірну палітру нашого свята. 
+                Це допоможе створити особливу атмосферу на фотографіях, які залишаться з нами на все життя!
+            </p>
+             <div class="color-palette-container">
+                <div class="color-palette">
+                    <div class="color-circle" style="background-color: #4F5D2F;"></div>
+                    <div class="color-circle" style="background-color: #6B7A40;"></div>
+                    <div class="color-circle" style="background-color: #8A9362;"></div>
+                    <div class="color-circle" style="background-color: #A7B08A;"></div>
 
-            <div class="bento-item middle" style="background-image: url('images/14.JPG');"></div>
+                    <div class="color-circle" style="background-color: #F3EFE6;"></div>
+                    <div class="color-circle" style="background-color: #E6DCCB;"></div>
+                    <div class="color-circle" style="background-color: #D8CBB6;"></div>
+                    <div class="color-circle" style="background-color: #CBBFA8;"></div>
 
-            <div class="bento-item " style="background-image: url('images/3.JPG');"></div>
+                    <div class="color-circle" style="background-color: #B08A5A;"></div>
+                    <div class="color-circle" style="background-color: #9C6F44;"></div>
+                    <div class="color-circle" style="background-color: #7C5432;"></div>
+                    <div class="color-circle" style="background-color: #5A3A24;"></div>
 
-            <div class="bento-item tall" style="background-image: url('images/4.JPG');"></div>
+                    <div class="color-circle" style="background-color: #E8C1B5;"></div>
+                    <div class="color-circle" style="background-color: #D8AFA6;"></div>
+                    <div class="color-circle" style="background-color: #CFA1A0;"></div>
+                    <div class="color-circle" style="background-color: #E6BFC8;"></div>
+
+                    <div class="color-circle" style="background-color: #C6C6C4;"></div>
+                    <div class="color-circle" style="background-color: #AFAEAA;"></div>
+                    <div class="color-circle" style="background-color: #8E8D88;"></div>
+                    <div class="color-circle" style="background-color: #6F6E69;"></div>
+
+                    <div class="color-circle" style="background-color: #C26A44;"></div>
+                    <div class="color-circle" style="background-color: #B05A3C;"></div>
+                    <div class="color-circle" style="background-color: #D1A46D;"></div>
+                    <!-- <div class="color-circle" style="background-color: #A9744F;"></div> -->
+
+                    <div class="color-circle" style="background-color: #3E3A32;"></div>
+                    <div class="color-circle" style="background-color: #4B3F35;"></div>
+                </div>
+            </div>
             
-            <div class="bento-item small" style="background-image: url('images/0.JPG');"></div>
-
-
         </div>
     </section>
     
-<section class="gifts-section">
-    <div class="gifts-container">
-        <h2 class="gifts-title">Побажання щодо подарунків</h2>
+<section class="gifts-section gifts-section--reversed">
+    <div class="section-card">
+        <h2 class="gifts-title" data-key="titleGifts">Побажання щодо подарунків</h2>
         
         <div class="gifts-content-wrapper">
-            <img src="./images/cat.gif" alt="sitting cat" class="static-cat">
             
-            <p class="gifts-text">
-                Ваша присутність на нашому святі — це вже найбільший дарунок для нас. 
-                Ми дуже цінуємо вашу увагу, і щоб подарунок точно став нам у пригоді, найкращим форматом буде конверт.
+            
+            <p class="gifts-text" data-key="p1Gifts">
+                Ваша присутність на нашому святі — це вже найбільший дарунок для нас. Ми дуже цінуємо вашу увагу, але якщо ви все таки вирішите щось нам подарувати, то найкращим варіантом для нас буде фінансова підтримка. 💸😊
             </p>
-            <p class="gifts-text">
-                Це допоможе нам здійснити нашу спільну мрію про власне затишне гніздечко та першу сімейну подорож. 
-                Ваша підтримка — це внесок у наше щасливе майбутнє, за що ми вам безмежно вдячні!
+            <img src="./images/cat.gif" alt="sitting cat" class="static-cat">
+            <p class="gifts-text" data-key="p2Gifts">
+                Це допоможе нам наблизити здійснення нашої спільної мрії про власне затишне гніздечко та першу сімейну подорож✨🌍
+            </p>
+            <p class="gifts-text centered" data-key="p3Gifts">
+                Ми вам безмежно вдячні!
             </p>
             <div style="clear: both;"></div>
         </div>
     </div>
 </section>
     <section class="rsvp-section">
-    <div class="rsvp-card">
+    <div class="section-card">
         <h2 data-key="rsvp-title">Підтвердження присутності</h2>
-        <p data-key="rsvp-subtitle">Будь ласка, повідомте нам про вашу участь до 01.08.2026</p>
+        <p data-key="rsvp-subtitle">Будь ласка, повідомте нам про вашу участь до 01.06.2026</p>
         
         <form action="https://formspree.io/f/xlgwenlj" method="POST" class="rsvp-form">
             <div class="input-group">
@@ -152,7 +210,7 @@
                     <span data-key="option-yes">Я прийду</span>
                 </label>
                 <label class="radio-container">
-                    <input type="radio" name="attendance" value="Ні (Не прийде)" id="attendance-no" checked>
+                    <input type="radio" name="attendance" value="Ні (Не прийде)" id="attendance-no">
                     <span class="checkmark"></span>
                     <span data-key="option-no">На жаль, не зможу</span>
                 </label>
@@ -162,18 +220,20 @@
                 <p style="text-align: left; color: var(--deep-forest); font-weight: bold; margin-bottom: 15px;" data-key="housing-question">
                     Чи вам потрібна допомога з житлом на час святкування?
                 </p>
-                
+
+                <label class="radio-container">
+                    <input type="radio" name="housing_needed" value="Ні (Не потрібно)">
+                    <span class="checkmark"></span>
+                    <span data-key="housing-no">Ні, дякую. Я вирішу це питання самостійно.</span>
+                </label>
+
                 <label class="radio-container">
                     <input type="radio" name="housing_needed" value="Так (Потрібно)" required>
                     <span class="checkmark"></span>
                     <span data-key="housing-yes">Так, потрібна</span>
                 </label>
                 
-                <label class="radio-container">
-                    <input type="radio" name="housing_needed" value="Ні (Не потрібно)">
-                    <span class="checkmark"></span>
-                    <span data-key="housing-no">Ні, дякую</span>
-                </label>
+                
             </div>
 
             <button type="submit" class="submit-btn" data-key="submit-btn">Надіслати</button>
