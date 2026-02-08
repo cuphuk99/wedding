@@ -16,7 +16,7 @@ const translations = {
         'submit-btn': 'Надіслати',
         'location': 'Локація',
         "dresscode-title": "Дрес-код",
-        "dress-code-description": "Ми будемо дуже вдячні, якщо ви підтримаєте колірну палітру нашого свята. Це допоможе створити особливу атмосферу на фотографіях, які залишаться з нами на все життя!",
+        "dress-code-description": "Вдягайте те, у чому вам буде зручно і весело💃 Але нам буде дуже приємно, якщо ви підтримаєте кольори нашого свята у своїх образах",
         "color-forest": "Темно-хвойний",
         "color-olive": "Оливковий",
         "color-dark-beige": "Темний беж",
@@ -25,10 +25,12 @@ const translations = {
         "housing-yes": "Так, потрібна",
         "housing-no": "Ні, дякую. Я вирішу це питання самостійно.",
         "housing-question": "Чи вам потрібна допомога з житлом на час святкування?",
-        "p1Gifts": "Ваша присутність на нашому святі — це вже найбільший дарунок для нас. Ми дуже цінуємо вашу увагу, але якщо ви все таки вирішите щось нам подарувати, то найкращим варіантом для нас буде фінансова підтримка. 💸😊",
-        "p2Gifts": "Це допоможе нам наблизити здійснення нашої спільної мрії про власне затишне гніздечко та першу сімейну подорож. ✨🌍",
+        "p1Gifts": "Ваша присутність на нашому святі — це вже найбільший дарунок для нас. Ми дуже цінуємо вашу увагу, але якщо ви все таки вирішите щось нам подарувати, то найкращим варіантом буде фінансова підтримка. 💸😊",
+        "p2Gifts": "Це допоможе нам наблизити здійснення спільної мрії про власне затишне гніздечко та першу сімейну подорож✨🌍",
         "p3Gifts": "Ми вам безмежно вдячні!",
-        "titleGifts": "Побажання щодо подарунків"
+        "titleGifts": "Побажання щодо подарунків",
+        "location-details": "Про точні час і місце буде повідомлено особисто.",
+        "location-details-small": "(Враховуйте час на дорогу у своїх подорожах, щоб ви мали час відпочити до та після свята)"
     },
     'sk': {
         'names': 'Hanna & Vladyslav',
@@ -47,7 +49,7 @@ const translations = {
         'submit-btn': 'Odoslať',
         'location': 'Localita',
         "dresscode-title": "Dresscode",
-        "dress-code-description": "Budeme veľmi vďační, ak podporíte farebnú paletu nášho sviatku. Pomôže to vytvoriť osobitnú atmosféru na fotografiách, ktoré nám zostanú na celý život!",
+        "dress-code-description": "Oblečte si to, v čom sa budete cítiť pohodlne a v čom sa vám bude dobre zabávať 💃 Ale veľmi nás poteší, ak svoje oblečenie zladíte s farbami našej svadby.",
         "color-forest": "Tmavozelená",
         "color-olive": "Olivová",
         "color-dark-beige": "Tmavobéžová",
@@ -59,7 +61,9 @@ const translations = {
         "p1Gifts": "To, že prídete osláviť s nami, je pre nás ten najväčší darček – naozaj! Ale ak by ste nás predsa len chceli potešiť ešte niečím navyše, najviac sa potešíme finančnému príspevku 💸😊",
         "p2Gifts": "Pomôže nám to posunúť sa o krok bližšie k nášmu snu o vlastnom útulnom hniezdočku a k našej prvej rodinnej dovolenke ✨🌍",
         "p3Gifts": "ĎAKUJEME z celého srdca!",
-        "titleGifts": "Malý tip na darčeky"
+        "titleGifts": "Malý tip na darčeky",
+        "location-details": "O presnom čase a mieste vás budeme informovať osobne.",
+        "location-details-small": " "
 
     }
 };
@@ -77,15 +81,6 @@ function changeLanguage(lang) {
 
 // Змінна для зберігання останнього вибраного кольору
 let selectedColorId = null;
-
-// document.querySelectorAll('.color-circle').forEach(circle => {
-//     circle.addEventListener('click', function() {
-//         selectedColorId = this.dataset.colorId; // Запам'ятовуємо, який колір вибрали        
-//         // Візуальне виділення
-//         document.querySelectorAll('.color-circle').forEach(c => c.classList.remove('active'));
-//         this.classList.add('active');
-//     });
-// });
 
 document.addEventListener('DOMContentLoaded', () => {
     const circles = document.querySelectorAll('.color-circle');
