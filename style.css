@@ -337,6 +337,7 @@ p {
 /* --- RSVP ТА ІНФО (МОБІЛЬНІ) --- */
 .rsvp-section, .info {
     padding: 10px 20px;
+    margin-bottom: 15px;
 }
 
 .rsvp-card, .info-content {
